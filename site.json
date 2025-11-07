@@ -1,0 +1,56 @@
+{
+  "textos": {
+    "tituloPagina": "IGREJA PENTECOSTAL ORAÇÃO DA FÉ",
+    "subtitulo": "e a oração da fé salvará o doente, e o Senhor o levantará; e, se houver cometido pecados, ser-lhe-ão perdoados. Tiago 5:15",
+    "secoes": {
+      "transmissaoTitulo": "Transmissão ao vivo",
+      "transmissaoDescricao": "Acompanhe a ministração e permaneça em oração.",
+      "chatTitulo": "🕊️ Deixe sua Oração",
+      "chatDescricao": "Escreva sua oração e interaja com os irmãos no chat.",
+      "campanhasTitulo": "🔥 Faça sua Campanha",
+      "campanhasDescricao": "Escolha a área e apresente seu propósito diante de Deus.",
+      "contribuicaoTitulo": "💝 Semeie com Propósito",
+      "contribuicaoDescricao": "Sua oferta e fidelidade sustentam esta obra e alcançam vidas."
+    }
+  },
+  "transmissao": {
+    "fonte": "youtube",
+    "videoId": "PLACEHOLDER_YT_ID",
+    "canalLiveUrl": "https://www.youtube.com/channel/SEU_ID/live",
+    "embedDomain": "seudominio.com",
+    "status": "live",
+    "chat": "youtube"
+  },
+  "campanhas": [
+    {
+      "nome": "Vida Financeira",
+      "icone": "💼",
+      "descricao": "Portas abertas, emprego, dívidas, provisão.",
+      "ordem": 1,
+      "ativo": true
+    },
+    {
+      "nome": "Espiritual",
+      "icone": "🙏",
+      "descricao": "Consagração, renovo, batismo com o Espírito Santo.",
+      "ordem": 2,
+      "ativo": true
+    }
+  ],
+  "contribuicoes": {
+    "ofertaUrl": "https://example.com/oferta",
+    "dizimoUrl": "https://example.com/dizimo",
+    "whatsappGrupoUrl": "https://chat.whatsapp.com/SEU_GRUPO"
+  },
+  "aparencia": {
+    "corPrimaria": "#ffcc66",
+    "corSecundaria": "#0f0d12",
+    "tema": "escuro"
+  },
+  "seo": {
+    "title": "IGREJA PENTECOSTAL ORAÇÃO DA FÉ • Ao Vivo",
+    "description": "Transmissão ao vivo, mural de orações e campanhas de fé.",
+    "image": "https://example.com/share.jpg"
+  }
+}
+

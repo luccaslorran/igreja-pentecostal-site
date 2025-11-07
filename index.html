@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IGREJA PENTECOSTAL ORAÇÃO DA FÉ • Ao Vivo</title>
+  <meta name="description" content="Sala de Oração Pentecostal — Transmissão ao vivo, mural de orações e campanhas de fé." />
+
+  <style>
+    :root{
+      --bg:#0f0d12;           /* fundo escuro */
+      --card:#18151d;         /* cards */
+      --text:#f6f3ff;         /* texto principal */
+      --muted:#cfc6ff;        /* texto secundário */
+      --gold:#ffcc66;         /* dourado */
+      --wine:#7a2b2b;         /* vinho */
+      --accent:#e74b3c;       /* fogo */
+      --accent-2:#ff915b;     /* gradiente complementar */
+      --ok:#2ecc71;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(231,75,60,.25), transparent 60%) , var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    header{
+      padding:16px 18px;
+      background:linear-gradient(120deg, #ffe36c 0%, #ffb300 60%, #ff9f43 100%);
+      border-bottom:1px solid rgba(0,0,0,.12);
+      box-shadow:0 6px 20px rgba(0,0,0,.18);
+      position:sticky; top:0; z-index:50; backdrop-filter:blur(6px);
+    }
+    .header-inner{
+      max-width:1080px; margin:0 auto; display:flex; align-items:center; gap:20px; justify-content:space-between; flex-wrap:wrap;
+    }
+    .logo{
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .logo img{
+      display:block; width:68px; height:68px; object-fit:contain;
+    }
+    .menu-toggle{
+      display:none; background:rgba(255,255,255,.3); border:1px solid rgba(0,0,0,.15);
+      color:#2c1800; font-weight:700; padding:8px 12px; border-radius:8px; cursor:pointer;
+      transition:background .2s ease, transform .2s ease;
+    }
+    .menu-toggle:hover, .menu-toggle:focus{background:rgba(255,255,255,.45); transform:translateY(-1px);}
+    .nav-links{
+      display:flex; gap:18px; align-items:center; flex-wrap:wrap;
+    }
+    .nav-links a{
+      position:relative; color:rgba(44,24,0,.85); font-weight:600; text-decoration:none; padding:4px 0;
+      transition:color .2s ease;
+    }
+    .nav-links a::after{
+      content:""; position:absolute; left:0; bottom:-4px; width:100%; height:2px;
+      background:rgba(44,24,0,.55); transform:scaleX(0); transform-origin:left; transition:transform .2s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus{color:#2c1800;}
+    .nav-links a:hover::after, .nav-links a:focus::after{transform:scaleX(1);}
+    @media(max-width:720px){
+      header{
+        padding:14px 18px;
+      }
+      .header-inner{
+        gap:14px;
+      }
+      .menu-toggle{display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.35);}
+      .nav-links{
+        position:absolute; left:18px; right:18px; top:100%; margin-top:10px; padding:16px;
+        background:rgba(15,13,18,.92); border:1px solid rgba(255,255,255,.12); border-radius:14px;
+        flex-direction:column; align-items:flex-start; gap:12px;
+        opacity:0; pointer-events:none; transform:translateY(-6px); transition:opacity .25s ease, transform .25s ease;
+      }
+      .nav-links a{color:var(--text);}
+      .nav-links a::after{background:var(--gold); bottom:-6px;}
+      .nav-links.open{opacity:1; pointer-events:auto; transform:translateY(0);}
+    }
+    .hero{
+      padding:32px 16px 20px;
+      text-align:center;
+      background: linear-gradient(180deg, rgba(255,204,102,.14), rgba(255,204,102,0) 60%);
+    }
+    .hero .pill{margin-bottom:10px; color:var(--gold);}
+    .hero h1{
+      margin:0 0 10px; font-weight:800; letter-spacing:.3px;
+      font-size:clamp(1.5rem, 2.5vw + .8rem, 2.6rem);
+      text-shadow:0 0 24px rgba(255,204,102,.15);
+    }
+    .hero p{margin:0; color:var(--muted);}
+    main{max-width:1080px; margin:20px auto; padding:0 16px}
+
+    .section{margin:20px 0 28px}
+    .card{background:var(--card); border:1px solid rgba(255,204,102,.12); border-radius:16px; padding:16px}
+    .card h2{margin:6px 0 14px; font-size:1.25rem}
+    .subtle{color:var(--muted); font-size:.95rem}
+
+    .media{display:grid; gap:14px}
+    .ratio{position:relative; width:100%; padding-top:56.25%; border-radius:12px; overflow:hidden; border:1px solid rgba(255,204,102,.12)}
+    .ratio iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+
+    .grid{display:grid; gap:14px}
+    @media(min-width:900px){
+      .media{grid-template-columns: 2fr 1.1fr}
+      .grid.cols-3{grid-template-columns: repeat(3, 1fr)}
+      .grid.cols-4{grid-template-columns: repeat(4, 1fr)}
+    }
+
+    .pill{
+      display:inline-block; padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(255,204,102,.25); background:rgba(255,204,102,.08); color:var(--gold);
+      font-size:.85rem; margin-bottom:10px
+    }
+    #statusTransmissao[data-state="live"]{
+      color:#ffefe0; border-color:rgba(231,75,60,.4); background:rgba(231,75,60,.2);
+    }
+    #statusTransmissao[data-state="off"]{
+      color:rgba(207,198,255,.75); border-color:rgba(207,198,255,.2); background:rgba(207,198,255,.08);
+    }
+    #statusTransmissao[data-state="replay"]{
+      color:var(--gold); border-color:rgba(255,204,102,.4); background:rgba(255,204,102,.12);
+    }
+
+    /* Campanhas */
+    .campanha-card{
+      background:linear-gradient(180deg, rgba(231,75,60,.08), rgba(255,204,102,.06));
+      border:1px solid rgba(255,204,102,.15);
+      border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:8px;
+    }
+    .campanha-card strong{font-size:1.05rem}
+    .btn{
+      appearance:none; border:0; border-radius:12px; padding:10px 14px; font-weight:700; cursor:pointer;
+      background:linear-gradient(180deg, var(--accent-2), var(--accent)); color:white; box-shadow:0 6px 18px rgba(231,75,60,.35);
+      transition:.2s transform, .2s box-shadow, .2s filter;
+    }
+    .btn:hover{transform:translateY(-1px); filter:brightness(1.05)}
+    .btn.ghost{
+      background:transparent; color:var(--gold); border:1px solid rgba(255,204,102,.35);
+      box-shadow:none;
+    }
+    .btn.linklike{background:transparent; color:var(--gold); padding:0; border:0; font-weight:600}
+
+    /* Modal */
+    .modal-backdrop{
+      position:fixed; inset:0; background:rgba(0,0,0,.55); display:none; align-items:center; justify-content:center; z-index:60;
+      backdrop-filter: blur(4px);
+    }
+    .modal{width:min(520px, 92%); background:var(--card); border:1px solid rgba(255,204,102,.2); border-radius:16px; padding:16px}
+    .modal h3{margin:0 0 10px}
+    .row{display:grid; grid-template-columns:1fr; gap:10px}
+    @media(min-width:640px){ .row.two{grid-template-columns:1fr 1fr} }
+    label{font-size:.9rem; color:var(--muted)}
+    input, select, textarea{
+      width:100%; padding:10px 12px; background:#100e14; color:var(--text); border:1px solid rgba(255,204,102,.14); border-radius:10px;
+      outline:none;
+    }
+    textarea{min-height:100px; resize:vertical}
+    .modal-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:12px}
+
+    /* Animação de confirmação */
+    .toast{
+      position:fixed; inset:auto 50% 24px auto; transform:translateX(-50%) translateY(20px);
+      background:linear-gradient(180deg, rgba(255,204,102,.12), rgba(231,75,60,.12));
+      border:1px solid rgba(255,204,102,.35);
+      color:var(--text); padding:14px 16px; border-radius:14px; z-index:70; width:min(640px, 92%);
+      opacity:0; pointer-events:none; transition:.35s ease;
+      box-shadow:0 18px 40px rgba(0,0,0,.35), 0 0 60px rgba(255,204,102,.2) inset;
+    }
+    .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+    .glow{
+      text-shadow:
+        0 0 10px rgba(255,204,102,.35),
+        0 0 20px rgba(231,75,60,.25);
+      color:#ffe9b5;
+      font-weight:800;
+    }
+    .small{font-size:.92rem; color:var(--muted)}
+
+    /* Seção de Contribuição */
+    .cta-stack{display:grid; gap:12px}
+    @media(min-width:640px){ .cta-stack{grid-template-columns: repeat(3, 1fr)} }
+    .cta{padding:16px; border-radius:14px; border:1px solid rgba(255,204,102,.18); background:linear-gradient(180deg, rgba(255,204,102,.06), transparent)}
+    .cta h4{margin:0 0 8px}
+    .cta p{margin:0 0 12px; color:var(--muted)}
+    .cta .btn{width:100%}
+
+    footer{
+      margin-top:36px; padding:24px 16px; text-align:center; color:var(--muted);
+      border-top:1px solid rgba(255,204,102,.12)
+    }
+
+    .admin-fab{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:.85rem;
+      text-decoration:none;
+      background:rgba(24,21,29,.78);
+      color:rgba(255,204,102,.82);
+      border:1px solid rgba(255,204,102,.28);
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .admin-fab:hover,
+    .admin-fab:focus{
+      transform:translateY(-1px);
+      background:rgba(24,21,29,.92);
+      box-shadow:0 14px 32px rgba(0,0,0,.3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="https://i.postimg.cc/sxqCfsDx/Design-sem-nome-1.png" alt="IGREJA PENTECOSTAL ORAÇÃO DA FÉ" />
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ Menu</button>
+      <nav class="nav-links" id="mainNav" aria-label="Seções principais">
+        <a href="#transmissao">Transmissão</a>
+        <a href="#campanhas">Campanhas</a>
+        <a href="#contribuicao">Contribuição</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="pill" data-bind="tagline">🕯️ Ministério Pentecostal</span>
+    <h1 data-bind="tituloPagina">IGREJA PENTECOSTAL ORAÇÃO DA FÉ</h1>
+    <p data-bind="subtitulo">“e a oração da fé salvará o doente, e o Senhor o levantará; e, se houver cometido pecados, ser-lhe-ão perdoados.” Tiago 5:15</p>
+  </section>
+
+  <main>
+    <!-- VÍDEO + CHAT -->
+    <section class="section media" id="transmissao">
+      <div class="card" id="transmissaoCard">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <h2 style="margin:6px 0;" data-section-title="transmissao">Transmissão ao vivo</h2>
+          <span class="pill" id="statusTransmissao">🔴 AO VIVO</span>
+        </div>
+        <p class="subtle" data-section-descricao="transmissao">Acompanhe a ministração e permaneça em oração.</p>
+        <div class="ratio" id="playerContainer" aria-label="Player do vídeo">
+          <iframe id="videoFrame" src="about:blank" data-default-src="about:blank" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture; fullscreen"></iframe>
+        </div>
+        <div class="small" id="canalLinkWrapper" style="margin-top:10px; display:none;">
+          <a class="btn ghost" id="canalLink" href="#" target="_blank" rel="noopener">Abrir transmissão no canal</a>
+        </div>
+      </div>
+
+      <div class="card" id="chat-card">
+        <h2 data-section-title="chat">🕊️ Deixe sua Oração</h2>
+        <p class="subtle" data-section-descricao="chat">Escreva sua oração e interaja com os irmãos no chat.</p>
+        <div class="ratio" id="chatContainer" style="padding-top:68%;">
+          <iframe id="chatFrame" src="about:blank" title="Chat ao vivo"></iframe>
+        </div>
+        <p class="small" id="chatHint" style="margin-top:8px;">Para participar do chat do YouTube é necessário estar logado. Se preferir um mural próprio, você pode integrar Firebase depois.</p>
+      </div>
+    </section>
+
+    <!-- CAMPANHAS -->
+    <section class="section card" id="campanhas">
+      <h2 data-section-title="campanhas">🔥 Faça sua Campanha</h2>
+      <p class="subtle" data-section-descricao="campanhas">Escolha a área e apresente seu propósito diante de Deus.</p>
+
+      <div class="grid cols-3" id="campanhasGrid">
+        <p class="subtle" id="campanhasVazio" style="grid-column:1/-1; display:none;">Nenhuma campanha disponível no momento.</p>
+      </div>
+    </section>
+
+    <!-- CONTRIBUIÇÃO -->
+    <section class="section card" id="contribuicao">
+      <h2 data-section-title="contribuicao">💝 Semeie com Propósito</h2>
+      <p class="subtle" data-section-descricao="contribuicao">Sua oferta e fidelidade sustentam esta obra e alcançam vidas.</p>
+
+      <div class="cta-stack">
+        <div class="cta">
+          <h4>Oferta de Sacrifício</h4>
+          <p>Uma semente de fé pela sua causa específica.</p>
+          <a class="btn" id="ofertaLink" href="#" target="_blank" rel="noopener">Fazer Oferta</a>
+        </div>
+        <div class="cta">
+          <h4>Dízimo</h4>
+          <p>Fidelidade ao Senhor em primeiro lugar.</p>
+          <a class="btn" id="dizimoLink" href="#" target="_blank" rel="noopener">Entregar Dízimo</a>
+        </div>
+        <div class="cta">
+          <h4>Grupos e Campanhas</h4>
+          <p>Entre no grupo oficial (somente avisos do ministério).</p>
+          <a class="btn" id="whatsappLink" href="#" target="_blank" rel="noopener">Entrar no Grupo</a>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:10px;">No grupo do WhatsApp, apenas administradores enviam mensagens com direcionamentos e horários das orações.</p>
+    </section>
+  </main>
+
+  <!-- MODAL CAMPANHA -->
+  <div class="modal-backdrop" id="modalCampanha" aria-hidden="true" role="dialog" aria-label="Formulário de Campanha">
+    <div class="modal">
+      <h3>Apresente sua Campanha</h3>
+      <p class="small" id="areaSelecionadaInfo">Área: —</p>
+
+      <form id="formCampanha" name="campanha" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="campanha" />
+        <div style="display:none;">
+          <label>Não preencha: <input name="bot-field" /></label>
+        </div>
+        <div class="row two">
+          <div>
+            <label for="nome">Seu nome completo</label>
+            <input type="text" id="nome" name="nome" required placeholder="Ex.: Maria dos Santos" />
+          </div>
+          <div>
+            <label for="area">Área</label>
+            <select id="area" name="area" required>
+              <option value="">Selecione…</option>
+              <option>Vida Financeira</option>
+              <option>Espiritual</option>
+              <option>Sentimental</option>
+              <option>Saúde</option>
+              <option>Emocional</option>
+              <option>Família</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="pedido">Pedido de oração (opcional)</label>
+            <textarea id="pedido" name="pedido" placeholder="Escreva seu pedido de oração…"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn ghost" id="btnCancelar">Cancelar</button>
+          <button type="submit" class="btn">Enviar Campanha</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST / ANIMAÇÃO -->
+  <div class="toast" id="toast">
+    <div style="display:flex; gap:12px; align-items:flex-start;">
+      <div aria-hidden="true" style="font-size:1.3rem">✨</div>
+      <div>
+        <div id="toastTitulo" class="glow">Campanha enviada com fé!</div>
+        <div id="toastMsg" class="small">—</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>“O Deus de paz esmagará em breve satanás debaixo dos vossos pés.” — Romanos 16:20</div>
+    <div style="margin-top:6px">© Ministério Pentecostal — Todos os direitos reservados</div>
+  </footer>
+
+  <a href="/admin/" class="admin-fab" rel="noopener" aria-label="Abrir painel administrativo">Configurar site</a>
+
+  <script>
+    // ========= Helpers =========
+    const qs = sel => document.querySelector(sel);
+    const qsa = sel => Array.from(document.querySelectorAll(sel));
+
+    const state = {
+      config: null
+    };
+
+    const DATA_SELECTORS = {
+      tituloPagina: '[data-bind="tituloPagina"]',
+      subtitulo: '[data-bind="subtitulo"]',
+      tagline: '[data-bind="tagline"]',
+      secaoTitulo: '[data-section-title="{key}"]',
+      secaoDescricao: '[data-section-descricao="{key}"]'
+    };
+
+    async function loadConfig(){
+      try {
+        const res = await fetch('/site.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Falha ao carregar site.json');
+        state.config = await res.json();
+        applyConfig();
+      } catch (err) {
+        console.error('[Config] Não foi possível carregar site.json', err);
+      }
+    }
+
+    function applyConfig(){
+      if (!state.config) return;
+      const cfg = state.config;
+
+      // SEO & título
+      if (cfg.seo){
+        if (cfg.seo.title) document.title = cfg.seo.title;
+        let metaDescription = document.querySelector('meta[name="description"]');
+        if (cfg.seo.description){
+          if (!metaDescription){
+            metaDescription = document.createElement('meta');
+            metaDescription.setAttribute('name', 'description');
+            document.head.appendChild(metaDescription);
+          }
+          metaDescription.setAttribute('content', cfg.seo.description);
+        }
+      }
+
+      // Textos principais
+      if (cfg.textos){
+        setText(DATA_SELECTORS.tituloPagina, cfg.textos.tituloPagina || '');
+        setText(DATA_SELECTORS.subtitulo, cfg.textos.subtitulo || '');
+        if (cfg.textos.tagline) setText(DATA_SELECTORS.tagline, cfg.textos.tagline);
+
+        if (cfg.textos.secoes){
+          updateSectionCopy('transmissao', cfg.textos.secoes.transmissaoTitulo, cfg.textos.secoes.transmissaoDescricao);
+          updateSectionCopy('chat', cfg.textos.secoes.chatTitulo, cfg.textos.secoes.chatDescricao);
+          updateSectionCopy('campanhas', cfg.textos.secoes.campanhasTitulo, cfg.textos.secoes.campanhasDescricao);
+          updateSectionCopy('contribuicao', cfg.textos.secoes.contribuicaoTitulo, cfg.textos.secoes.contribuicaoDescricao);
+        }
+      }
+
+      // Aparência básica (cores)
+      if (cfg.aparencia){
+        if (cfg.aparencia.corPrimaria){
+          document.documentElement.style.setProperty('--gold', cfg.aparencia.corPrimaria);
+        }
+        if (cfg.aparencia.corSecundaria){
+          document.documentElement.style.setProperty('--accent', cfg.aparencia.corSecundaria);
+          document.documentElement.style.setProperty('--accent-2', lightenColor(cfg.aparencia.corSecundaria, 0.35));
+        }
+      }
+
+      // Transmissão / vídeos
+      applyTransmissao(cfg.transmissao || {});
+
+      // Campanhas
+      renderCampanhas(cfg.campanhas || []);
+
+      // Contribuições
+      if (cfg.contribuicoes){
+        setLink('#ofertaLink', cfg.contribuicoes.ofertaUrl);
+        setLink('#dizimoLink', cfg.contribuicoes.dizimoUrl);
+        setLink('#whatsappLink', cfg.contribuicoes.whatsappGrupoUrl);
+      }
+    }
+
+    function setText(selector, value){
+      const el = typeof selector === 'string' ? document.querySelector(selector) : selector;
+      if (el) el.textContent = value || '';
+    }
+
+    function updateSectionCopy(key, titulo, descricao){
+      if (titulo) setText(DATA_SELECTORS.secaoTitulo.replace('{key}', key), titulo);
+      if (descricao) setText(DATA_SELECTORS.secaoDescricao.replace('{key}', key), descricao);
+    }
+
+    function setLink(selector, url){
+      const el = document.querySelector(selector);
+      if (!el) return;
+      if (url){
+        el.href = url;
+        el.style.display = '';
+      } else {
+        el.removeAttribute('href');
+        el.style.display = 'none';
+      }
+    }
+
+    function lightenColor(color, factor = 0.3){
+      if (typeof color !== 'string') return color;
+      const hex = color.trim();
+      const match = hex.match(/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/);
+      if (!match) return color;
+      const raw = match[1].length === 3
+        ? match[1].split('').map(ch => ch + ch).join('')
+        : match[1];
+      const r = parseInt(raw.slice(0, 2), 16);
+      const g = parseInt(raw.slice(2, 4), 16);
+      const b = parseInt(raw.slice(4, 6), 16);
+      const blend = channel => Math.round(channel + (255 - channel) * Math.max(0, Math.min(1, factor)));
+      const toHex = channel => channel.toString(16).padStart(2, '0');
+      return `#${toHex(blend(r))}${toHex(blend(g))}${toHex(blend(b))}`;
+    }
+
+    function applyTransmissao(data){
+      const frame = qs('#videoFrame');
+      const chatFrame = qs('#chatFrame');
+      const statusPill = qs('#statusTransmissao');
+      const canalLink = qs('#canalLink');
+      const canalWrapper = qs('#canalLinkWrapper');
+
+      if (statusPill){
+        const status = data.status || 'live';
+        statusPill.dataset.state = status;
+        const statusMap = {
+          live: '🔴 AO VIVO',
+          off: '⏸️ Fora do ar',
+          replay: '▶️ Replay'
+        };
+        statusPill.textContent = statusMap[status] || statusMap.live;
+      }
+
+      if (canalLink){
+        if (data.canalLiveUrl){
+          canalLink.href = data.canalLiveUrl;
+          canalWrapper.style.display = 'block';
+        } else {
+          canalWrapper.style.display = 'none';
+        }
+      }
+
+      if (frame){
+        const source = buildVideoSource(data);
+        frame.src = source;
+      }
+
+      if (chatFrame){
+        if (data.chat === 'youtube' && data.videoId && data.embedDomain){
+          chatFrame.src = `https://www.youtube.com/live_chat?v=${encodeURIComponent(data.videoId)}&embed_domain=${encodeURIComponent(data.embedDomain)}`;
+          chatFrame.style.display = '';
+          qs('#chatHint').style.display = '';
+        } else {
+          chatFrame.src = 'about:blank';
+          chatFrame.style.display = 'none';
+          qs('#chatHint').style.display = 'none';
+        }
+      }
+    }
+
+    function buildVideoSource(data){
+      const defaultVideoSrc = document.querySelector('#videoFrame')?.dataset.defaultSrc || 'about:blank';
+      if (!data) return defaultVideoSrc;
+      const params = 'autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      if (data.fonte === 'youtube'){
+        const id = data.videoId || '';
+        return id ? `https://www.youtube.com/embed/${id}?${params}` : defaultVideoSrc;
+      }
+      if (data.fonte === 'jitsi'){
+        return data.videoId ? `https://meet.jit.si/${encodeURIComponent(data.videoId)}` : defaultVideoSrc;
+      }
+      if (data.fonte === 'url'){
+        return data.videoId || defaultVideoSrc;
+      }
+      return defaultVideoSrc;
+    }
+
+    function renderCampanhas(lista){
+      const grid = qs('#campanhasGrid');
+      const vazio = qs('#campanhasVazio');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      const itens = Array.isArray(lista) ? [...lista] : [];
+      const ativosOrdenados = itens
+        .filter(item => item && (item.ativo !== false))
+        .sort((a, b) => (a.ordem || 0) - (b.ordem || 0));
+
+      if (!ativosOrdenados.length){
+        if (vazio){
+          vazio.style.display = 'block';
+          grid.appendChild(vazio);
+        }
+        return;
+      }
+
+      if (vazio) vazio.style.display = 'none';
+
+      ativosOrdenados.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'campanha-card';
+        card.innerHTML = `
+          <strong>${(item.icone || '') + ' '}${item.nome || 'Campanha'}</strong>
+          <span class="subtle">${item.descricao || ''}</span>
+          <button class="btn" data-area="${item.nome || ''}">Fazer Campanha</button>
+        `;
+        grid.appendChild(card);
+      });
+
+      attachCampanhaHandlers();
+    }
+
+    function attachCampanhaHandlers(){
+      const buttons = qsa('[data-area]');
+      buttons.forEach(btn => {
+        btn.removeEventListener('click', campanhaHandler);
+        btn.addEventListener('click', campanhaHandler);
+      });
+    }
+
+    function campanhaHandler(evt){
+      const area = evt.currentTarget.getAttribute('data-area') || '';
+      const areaSelect = qs('#area');
+      const areaInfo = qs('#areaSelecionadaInfo');
+      if (areaSelect) areaSelect.value = area;
+      if (areaInfo) areaInfo.textContent = 'Área: ' + area;
+      openModal();
+    }
+
+    // ========= Navegação Responsiva =========
+    const menuToggle = qs('#menuToggle');
+    const navLinks = qs('#mainNav');
+
+    if(menuToggle && navLinks){
+      menuToggle.addEventListener('click', ()=>{
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      navLinks.querySelectorAll('a').forEach(link=>{
+        link.addEventListener('click', ()=>{
+          if(window.innerWidth <= 720){
+            navLinks.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      window.addEventListener('resize', ()=>{
+        if(window.innerWidth > 720){
+          navLinks.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // ========= Modal =========
+    const modal = qs('#modalCampanha');
+    const form = qs('#formCampanha');
+    const areaSelect = qs('#area');
+    const areaInfo = qs('#areaSelecionadaInfo');
+
+    function openModal(){
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      setTimeout(()=>{ qs('#nome').focus(); }, 60);
+    }
+    function closeModal(){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      form.reset();
+      areaInfo.textContent = 'Área: —';
+    }
+    qs('#btnCancelar').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.style.display==='flex') closeModal(); });
+
+    // ========= Envio do formulário (animação/recibo local) =========
+    const toast = qs('#toast');
+    const toastTitulo = qs('#toastTitulo');
+    const toastMsg = qs('#toastMsg');
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const nome = (qs('#nome').value || '').trim();
+      const area = (qs('#area').value || '').trim();
+      const pedido = (qs('#pedido').value || '').trim();
+
+      // Mostra animação/recibo
+      toastTitulo.textContent = `Campanha apresentada, ${nome || 'servo(a) do Senhor'}!`;
+      toastMsg.textContent = `${area ? 'Área: ' + area + '. ' : ''}${pedido ? 'Pedido: ' + pedido : 'Ore e creia: Deus está no controle.'}`;
+
+      toast.classList.add('show');
+      setTimeout(()=> toast.classList.remove('show'), 7000);
+
+      // Fecha modal
+      closeModal();
+
+      // (Opcional) Aqui você pode enviar para seu backend/Firebase
+      // ex.: fetch('/api/campanhas', {method:'POST', body:JSON.stringify({nome, area, pedido})})
+    });
+
+    // ========= Acessibilidade: pular para o chat rapidamente =========
+    // Atalhos: "c" = chat, "v" = vídeo, "k" = campanhas
+    document.addEventListener('keydown', (e)=>{
+      if (['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)) return;
+      if (e.key.toLowerCase() === 'c') qs('#chat-card').scrollIntoView({behavior:'smooth', block:'start'});
+      if (e.key.toLowerCase() === 'v') document.querySelector('iframe[src*="youtube.com/embed"]').scrollIntoView({behavior:'smooth', block:'start'});
+      if (e.key.toLowerCase() === 'k') qs('#campanhas').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    loadConfig();
+  </script>
+</body>
+</html>
