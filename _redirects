@@ -1,4 +1,5 @@
 /oferta    https://example.com/oferta   301
 /dizimo    https://example.com/dizimo   301
 /whatsapp  https://chat.whatsapp.com/SEU_GRUPO  302
+/admin/*   /admin/index.html   200
 
