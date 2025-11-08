@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets"
+public_folder: "/assets"
+
+site_url: "https://ipofpentecostal.netlify.app"
+
+collections:
+  - name: "configuracoes"
+    label: "Configurações do Site"
+    files:
+      - file: "site.json"
+        label: "Conteúdo Geral"
+        name: "site"
+        fields:
+          - { label: "Título da Página", name: "textos.tituloPagina", widget: "string" }
+          - { label: "Subtítulo", name: "textos.subtitulo", widget: "string" }
+          - { label: "Transmissão - ID do Vídeo", name: "transmissao.videoId", widget: "string" }
+          - { label: "Link do Canal", name: "transmissao.canalLiveUrl", widget: "string" }
+          - { label: "Status (live/off/replay)", name: "transmissao.status", widget: "string" }
+          - { label: "Cor Primária", name: "aparencia.corPrimaria", widget: "string", default: "#ffcc66" }
+          - { label: "Cor Secundária", name: "aparencia.corSecundaria", widget: "string", default: "#0f0d12" }
+          - { label: "URL da Oferta", name: "contribuicoes.ofertaUrl", widget: "string" }
+          - { label: "URL do Dízimo", name: "contribuicoes.dizimoUrl", widget: "string" }
+          - { label: "Link do WhatsApp", name: "contribuicoes.whatsappGrupoUrl", widget: "string" }
