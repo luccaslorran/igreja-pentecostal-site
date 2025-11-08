@@ -1,25 +1,9 @@
 {
-  "textos": {
-    "tituloPagina": "IGREJA PENTECOSTAL ORAÇÃO DA FÉ",
-    "subtitulo": "e a oração da fé salvará o doente, e o Senhor o levantará; e, se houver cometido pecados, ser-lhe-ão perdoados. Tiago 5:15",
-    "secoes": {
-      "transmissaoTitulo": "Transmissão ao vivo",
-      "transmissaoDescricao": "Acompanhe a ministração e permaneça em oração.",
-      "chatTitulo": "🕊️ Deixe sua Oração",
-      "chatDescricao": "Escreva sua oração e interaja com os irmãos no chat.",
-      "campanhasTitulo": "🔥 Faça sua Campanha",
-      "campanhasDescricao": "Escolha a área e apresente seu propósito diante de Deus.",
-      "contribuicaoTitulo": "💝 Semeie com Propósito",
-      "contribuicaoDescricao": "Sua oferta e fidelidade sustentam esta obra e alcançam vidas."
-    }
-  },
-  "transmissao": {
-    "fonte": "youtube",
-    "videoId": "PLACEHOLDER_YT_ID",
-    "canalLiveUrl": "https://www.youtube.com/channel/SEU_ID/live",
-    "embedDomain": "seudominio.com",
-    "status": "live",
-    "chat": "youtube"
+  "transmissao.canalLiveUrl": "https://www.youtube.com/@TVSerraDouradaOficial",
+  "contribuicoes": {
+    "ofertaUrl": "https://example.com/oferta",
+    "dizimoUrl": "https://example.com/dizimo",
+    "whatsappGrupoUrl": "https://chat.whatsapp.com/SEU_GRUPO"
   },
   "campanhas": [
     {
@@ -37,20 +21,45 @@
       "ativo": true
     }
   ],
-  "contribuicoes": {
-    "ofertaUrl": "https://example.com/oferta",
-    "dizimoUrl": "https://example.com/dizimo",
-    "whatsappGrupoUrl": "https://chat.whatsapp.com/SEU_GRUPO"
+  "aparencia.corSecundaria": "amarelo",
+  "transmissao.status": "reprise",
+  "textos": {
+    "tituloPagina": "IGREJA PENTECOSTAL ORAÇÃO DA FÉ",
+    "subtitulo": "e a oração da fé salvará o doente, e o Senhor o levantará; e, se houver cometido pecados, ser-lhe-ão perdoados. Tiago 5:15",
+    "secoes": {
+      "transmissaoTitulo": "Transmissão ao vivo",
+      "transmissaoDescricao": "Acompanhe a ministração e permaneça em oração.",
+      "chatTitulo": "🕊️ Deixe sua Oração",
+      "chatDescricao": "Escreva sua oração e interaja com os irmãos no chat.",
+      "campanhasTitulo": "🔥 Faça sua Campanha",
+      "campanhasDescricao": "Escolha a área e apresente seu propósito diante de Deus.",
+      "contribuicaoTitulo": "💝 Semeie com Propósito",
+      "contribuicaoDescricao": "Sua oferta e fidelidade sustentam esta obra e alcançam vidas."
+    }
+  },
+  "contribuicoes.dizimoUrl": "https://www.instagram.com/bistropiccadilly/?next=%2F",
+  "transmissao": {
+    "fonte": "youtube",
+    "videoId": "PLACEHOLDER_YT_ID",
+    "canalLiveUrl": "https://www.youtube.com/channel/SEU_ID/live",
+    "embedDomain": "seudominio.com",
+    "status": "live",
+    "chat": "youtube"
   },
   "aparencia": {
     "corPrimaria": "#ffcc66",
     "corSecundaria": "#0f0d12",
     "tema": "escuro"
   },
+  "contribuicoes.ofertaUrl": "https://www.instagram.com/bistropiccadilly/?next=%2F",
+  "aparencia.corPrimaria": "vermelho",
+  "transmissao.videoId": "Xvq8QVi0XYLymTXs",
+  "textos.subtitulo": "“A casa da oração para todos os povos”",
+  "textos.tituloPagina": "Igreja Pentecostal Oração e Fé",
   "seo": {
     "title": "IGREJA PENTECOSTAL ORAÇÃO DA FÉ • Ao Vivo",
     "description": "Transmissão ao vivo, mural de orações e campanhas de fé.",
     "image": "https://example.com/share.jpg"
-  }
+  },
+  "contribuicoes.whatsappGrupoUrl": "https://www.instagram.com/bistropiccadilly/?next=%2F"
 }
-
