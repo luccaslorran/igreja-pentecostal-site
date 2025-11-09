@@ -1,5 +1,5 @@
 {
-  "transmissao.canalLiveUrl": "https://www.youtube.com/@TVSerraDouradaOficial",
+  "transmissao.canalLiveUrl": "https://youtube.com/live/Nh3oWtmnNRM?feature=share",
   "contribuicoes": {
     "ofertaUrl": "https://example.com/oferta",
     "dizimoUrl": "https://example.com/dizimo",
@@ -22,7 +22,7 @@
     }
   ],
   "aparencia.corSecundaria": "amarelo",
-  "transmissao.status": "reprise",
+  "transmissao.status": "live",
   "textos": {
     "tituloPagina": "IGREJA PENTECOSTAL ORAÇÃO DA FÉ",
     "subtitulo": "e a oração da fé salvará o doente, e o Senhor o levantará; e, se houver cometido pecados, ser-lhe-ão perdoados. Tiago 5:15",
